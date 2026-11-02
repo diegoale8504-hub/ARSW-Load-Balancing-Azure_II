@@ -1,0 +1,22 @@
+﻿{
+  "info": {
+    "name": "Fibonacci",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [{
+    "name": "Fib 1000000",
+    "event": [{
+      "listen": "test",
+      "script": { "type": "text/javascript", "exec": [
+        "pm.test('Status 200', function () { pm.response.to.have.status(200); });",
+        "pm.test('Responde en menos de 60s', function () { pm.expect(pm.response.responseTime).to.be.below(60000); });"
+      ]}
+    }],
+    "request": {
+      "method": "POST",
+      "header": [{ "key": "Content-Type", "value": "application/json" }],
+      "body": { "mode": "raw", "raw": "{ \"nth\": 1000000 }" },
+      "url": "https://fibonacci-d-j-123-d5h8eyetd8hkaja7.chilecentral-01.azurewebsites.net/api/fibonacci"
+    }
+  }]
+}

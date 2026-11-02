@@ -251,7 +251,18 @@ $jobs | Receive-Job
 * **Todas las peticiones fueron respondidas** (10/10 con HTTP 200), por lo que esa parte del escenario de calidad se cumple.
 * **La latencia se degrada bajo concurrencia.** Seis peticiones tardaron entre 7,6 y 9,8 s (similar a la línea base de 9,4 s) y cuatro tardaron entre 17,2 y 20,5 s, casi el doble.
 * **Hipótesis (no verificada):** el cálculo es un ciclo intensivo en CPU que bloquea el hilo único de Node.js. Cuando dos peticiones llegan a la misma instancia, la segunda espera a que termine la primera (≈ 2 × 9 s ≈ 18 s). Las que cayeron en instancias distintas, que el plan Consumo fue añadiendo, no esperaron. El escalado automático del plan Consumo no es instantáneo.
-* **CPU:** en esta prueba **no se midió** el consumo de CPU de las instancias, así que el requisito de "no superar el 70 %" no queda demostrado. Para evidenciarlo habría que repetir la prueba con *Live Metrics* de Application Insights abierto.
+* **CPU:** la primera tanda (tabla anterior) se ejecutó sin *Live Metrics* abierto, por lo que de ella no hay medición de CPU. Para medirla se repitió la tanda de 10 peticiones concurrentes a `/api/fibonacci` con **Métricas en directo** (*Live Metrics*) de Application Insights abierto:
+
+![Métricas en directo durante las 10 peticiones concurrentes](images/solution/25-live-metrics-cpu.png)
+
+  Lo que muestra la captura (lectura aproximada de los gráficos):
+  * **Request Rate:** un pico de ≈ 10 peticiones por segundo, que corresponde a las 10 peticiones de Newman llegando juntas.
+  * **Servidores en línea:** 2, es decir, el plan Consumo añadió una instancia durante la prueba.
+  * **Duración de las ejecuciones:** la telemetría registra ejecuciones de `Functions.Fibonacci` de **≈ 59 a 60 s** (por ejemplo, `Duration=59429` y `Duration=60481` ms), bastante más que en la primera tanda.
+  * **CPU Total (%):** el eje del gráfico llega a 200 % y la línea oscila entre ≈ 0 % y picos cercanos al **100 %** durante la tanda, por lo que **el límite del 70 % del escenario de calidad parece superarse** en esos picos. El valor exacto no se leyó (solo se aprecia en el gráfico).
+  * **Memoria comprometida:** ≈ 400-450 MB.
+
+  > **Variabilidad entre tandas:** en la primera tanda las peticiones tardaron entre 7,6 y 20,5 s, y en la tanda medida con *Live Metrics* las ejecuciones duraron ≈ 60 s en el servidor. El tiempo bajo concurrencia depende de cuántas instancias haya activas y de cómo se reparten las peticiones, y el escalado del plan Consumo no es instantáneo.
 
 ---
 
@@ -447,7 +458,7 @@ Se desplegó la función `Fibonacci` en una Function App de Azure (plan Consumo,
 | `Fibonacci` con `nth = 1000000` (1 petición) | HTTP 200, 9,4 s (Newman) y 12,2 s (portal) |
 | 10 peticiones concurrentes | 10/10 con HTTP 200, 7,6 s a 20,5 s, promedio 12,8 s |
 | Errores en Application Insights | 0 solicitudes con errores |
-| CPU ≤ 70 % | No medido en esta prueba |
+| CPU ≤ 70 % | Picos cercanos al 100 % en *Live Metrics* con 2 servidores (lectura aproximada del gráfico); el límite parece superarse |
 | `Fibonacci2` con la instancia activa | Caché funciona (`cached: True`, ≈ 0 ms) |
 | `Fibonacci2` entre instancias | La caché no se comparte |
 | `Fibonacci2` tras ≈ 29 min de inactividad | Caché perdida (`cached: False`, uptime reiniciado) |

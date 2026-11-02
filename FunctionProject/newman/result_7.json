@@ -2,7 +2,7 @@
   "collection": {
     "item": [
       {
-        "id": "9119b116-885f-48dd-9ef7-58308254662d",
+        "id": "5e9249ca-fcfa-470f-9b09-30a9c47e0f51",
         "name": "Fib 1000000",
         "request": {
           "url": {
@@ -37,13 +37,13 @@
           {
             "listen": "test",
             "script": {
-              "id": "441bc209-713e-49d7-a357-f42ec9846138",
+              "id": "cdb34619-28e8-4ca3-ba31-1fc0631e76d4",
               "type": "text/javascript",
               "exec": [
                 "pm.test('Status 200', function () { pm.response.to.have.status(200); });",
                 "pm.test('Responde en menos de 60s', function () { pm.expect(pm.response.responseTime).to.be.below(60000); });"
               ],
-              "_lastExecutionId": "48de56e9-0867-4397-b756-aef5172d156a"
+              "_lastExecutionId": "c487f098-5ca3-40b8-b783-d41e750581bf"
             }
           }
         ]
@@ -52,17 +52,17 @@
     "event": [],
     "variable": [],
     "info": {
-      "_postman_id": "dcdbbef8-de30-428e-8b90-ca7d38a224bd",
+      "_postman_id": "010e0c86-0b46-49be-bbde-007e7d8a8222",
       "name": "Fibonacci",
       "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     }
   },
   "environment": {
-    "id": "be273151-4e98-473c-aad5-07c6d88bdf55",
+    "id": "fcdf7000-9d84-4e86-bc28-18184f7dc242",
     "values": []
   },
   "globals": {
-    "id": "21b5b0f0-4acf-4e3b-8637-3fec3eef6ff1",
+    "id": "c135c510-9123-45c8-8c5a-4cb81c25a79c",
     "values": []
   },
   "run": {
@@ -100,7 +100,7 @@
       "assertions": {
         "total": 2,
         "pending": 0,
-        "failed": 0
+        "failed": 1
       },
       "testScripts": {
         "total": 1,
@@ -114,9 +114,9 @@
       }
     },
     "timings": {
-      "responseAverage": 7674,
-      "responseMin": 7674,
-      "responseMax": 7674,
+      "responseAverage": 60413,
+      "responseMin": 60413,
+      "responseMax": 60413,
       "responseSd": 0,
       "dnsAverage": 0,
       "dnsMin": 0,
@@ -126,8 +126,8 @@
       "firstByteMin": 0,
       "firstByteMax": 0,
       "firstByteSd": 0,
-      "started": 1793660308454,
-      "completed": 1793660316188
+      "started": 1793663513287,
+      "completed": 1793663573769
     },
     "executions": [
       {
@@ -140,11 +140,11 @@
           "eof": false,
           "bof": true,
           "cr": false,
-          "ref": "3046fc77-c3d9-4a56-95d5-0433bdc15811",
-          "httpRequestId": "9c4c3923-d87a-432c-b972-a2454a80f2dc"
+          "ref": "a4524ee8-09c1-4ffa-a00a-210f7098a517",
+          "httpRequestId": "25509f00-9f3f-4ee8-886f-b5f51bd2b524"
         },
         "item": {
-          "id": "9119b116-885f-48dd-9ef7-58308254662d",
+          "id": "5e9249ca-fcfa-470f-9b09-30a9c47e0f51",
           "name": "Fib 1000000",
           "request": {
             "url": {
@@ -179,13 +179,13 @@
             {
               "listen": "test",
               "script": {
-                "id": "441bc209-713e-49d7-a357-f42ec9846138",
+                "id": "cdb34619-28e8-4ca3-ba31-1fc0631e76d4",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('Status 200', function () { pm.response.to.have.status(200); });",
                   "pm.test('Responde en menos de 60s', function () { pm.expect(pm.response.responseTime).to.be.below(60000); });"
                 ],
-                "_lastExecutionId": "48de56e9-0867-4397-b756-aef5172d156a"
+                "_lastExecutionId": "c487f098-5ca3-40b8-b783-d41e750581bf"
               }
             }
           ]
@@ -228,7 +228,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "a0d7cc5d-115a-49a8-85c0-fea44cf93943",
+              "value": "d885231b-c6ab-4881-8f57-0f9318662193",
               "system": true
             },
             {
@@ -259,7 +259,7 @@
           }
         },
         "response": {
-          "id": "817e17ea-adfc-44ae-be2e-a30ae94ae5ed",
+          "id": "647d53e4-08e4-41e0-bfba-df80790ab700",
           "status": "OK",
           "code": 200,
           "header": [
@@ -269,7 +269,7 @@
             },
             {
               "key": "Date",
-              "value": "Mon, 02 Nov 2026 22:58:35 GMT"
+              "value": "Mon, 02 Nov 2026 23:52:52 GMT"
             },
             {
               "key": "Content-Encoding",
@@ -209282,10 +209282,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 7674,
+          "responseTime": 60413,
           "responseSize": 208988
         },
-        "id": "9119b116-885f-48dd-9ef7-58308254662d",
+        "id": "5e9249ca-fcfa-470f-9b09-30a9c47e0f51",
         "assertions": [
           {
             "assertion": "Status 200",
@@ -209293,7 +209293,14 @@
           },
           {
             "assertion": "Responde en menos de 60s",
-            "skipped": false
+            "skipped": false,
+            "error": {
+              "name": "AssertionError",
+              "index": 1,
+              "test": "Responde en menos de 60s",
+              "message": "expected 60413 to be below 60000",
+              "stack": "AssertionError: expected 60413 to be below 60000\n   at Object.eval sandbox-script.js:2:1)"
+            }
           }
         ]
       }
@@ -209301,7 +209308,151 @@
     "transfers": {
       "responseTotal": 208988
     },
-    "failures": [],
+    "failures": [
+      {
+        "error": {
+          "name": "AssertionError",
+          "index": 1,
+          "test": "Responde en menos de 60s",
+          "message": "expected 60413 to be below 60000",
+          "stack": "AssertionError: expected 60413 to be below 60000\n   at Object.eval sandbox-script.js:2:1)",
+          "checksum": "46330bb384f3353602787e6238fc528b",
+          "id": "c9203365-17a4-4767-b333-f3237e0b7bc7",
+          "timestamp": 1793663573754,
+          "stacktrace": [
+            {
+              "fileName": "sandbox-script.js",
+              "lineNumber": 2,
+              "functionName": "Object.eval",
+              "typeName": "Object",
+              "methodName": "eval",
+              "columnNumber": 1,
+              "native": false
+            }
+          ]
+        },
+        "at": "assertion:1 in test-script",
+        "source": {
+          "id": "5e9249ca-fcfa-470f-9b09-30a9c47e0f51",
+          "name": "Fib 1000000",
+          "request": {
+            "url": {
+              "protocol": "https",
+              "path": [
+                "api",
+                "fibonacci"
+              ],
+              "host": [
+                "fibonacci-d-j-123-d5h8eyetd8hkaja7",
+                "chilecentral-01",
+                "azurewebsites",
+                "net"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"nth\": 1000000 }"
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "cdb34619-28e8-4ca3-ba31-1fc0631e76d4",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Responde en menos de 60s', function () { pm.expect(pm.response.responseTime).to.be.below(60000); });"
+                ],
+                "_lastExecutionId": "c487f098-5ca3-40b8-b783-d41e750581bf"
+              }
+            }
+          ]
+        },
+        "parent": {
+          "item": [
+            {
+              "id": "5e9249ca-fcfa-470f-9b09-30a9c47e0f51",
+              "name": "Fib 1000000",
+              "request": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "fibonacci"
+                  ],
+                  "host": [
+                    "fibonacci-d-j-123-d5h8eyetd8hkaja7",
+                    "chilecentral-01",
+                    "azurewebsites",
+                    "net"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \"nth\": 1000000 }"
+                }
+              },
+              "response": [],
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "cdb34619-28e8-4ca3-ba31-1fc0631e76d4",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('Status 200', function () { pm.response.to.have.status(200); });",
+                      "pm.test('Responde en menos de 60s', function () { pm.expect(pm.response.responseTime).to.be.below(60000); });"
+                    ],
+                    "_lastExecutionId": "c487f098-5ca3-40b8-b783-d41e750581bf"
+                  }
+                }
+              ]
+            }
+          ],
+          "event": [],
+          "variable": [],
+          "info": {
+            "_postman_id": "010e0c86-0b46-49be-bbde-007e7d8a8222",
+            "name": "Fibonacci",
+            "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+          }
+        },
+        "cursor": {
+          "position": 0,
+          "iteration": 0,
+          "length": 1,
+          "cycles": 1,
+          "empty": false,
+          "eof": false,
+          "bof": true,
+          "cr": false,
+          "ref": "a4524ee8-09c1-4ffa-a00a-210f7098a517",
+          "httpRequestId": "25509f00-9f3f-4ee8-886f-b5f51bd2b524",
+          "scriptId": "cdb34619-28e8-4ca3-ba31-1fc0631e76d4",
+          "execution": "c487f098-5ca3-40b8-b783-d41e750581bf"
+        }
+      }
+    ],
     "error": null
   }
 }
